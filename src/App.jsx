@@ -4,47 +4,29 @@ import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
 
 function App() {
-  const [greetMsg, setGreetMsg] = useState("");
-  const [name, setName] = useState("");
-
-  async function greet() {
-    // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-    setGreetMsg(await invoke("greet", { name }));
-  }
-
   return (
-    <main className="container">
-      <h1>Welcome to Tauri + React</h1>
-
-      <div className="row">
-        <a href="https://vite.dev" target="_blank">
-          <img src="/vite.svg" className="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img src="/tauri.svg" className="logo tauri" alt="Tauri logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="h-screen w-screen bg-app-bg text-app-text p-8 flex gap-6 font-mono">
+      
+      {/*Controls */}
+      <div className="w-1/3 bg-app-card rounded-xl border border-white/10 p-6 shadow-xl">
+        <h2 className="text-xl font-bold mb-4 border-b border-white/10 pb-2">
+          System Configuration
+        </h2>
+        <p className="opacity-70 text-sm">
+         Total Resources will be here
+        </p>
       </div>
-      <p>Click on the Tauri, Vite, and React logos to learn more.</p>
 
-      <form
-        className="row"
-        onSubmit={(e) => {
-          e.preventDefault();
-          greet();
-        }}
-      >
-        <input
-          id="greet-input"
-          onChange={(e) => setName(e.currentTarget.value)}
-          placeholder="Enter a name..."
-        />
-        <button type="submit">Greet</button>
-      </form>
-      <p>{greetMsg}</p>
-    </main>
+      {/*Visualization */}
+      <div className="w-2/3 flex flex-col gap-6">
+        <div className="flex-1 bg-app-card rounded-xl border border-white/10 p-6 flex items-center justify-center">
+          <h1 className="text-3xl font-bold">
+            Banker's Algorithm
+          </h1>
+        </div>
+      </div>
+
+    </div>
   );
 }
 
